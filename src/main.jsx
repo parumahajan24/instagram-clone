@@ -17,11 +17,11 @@ const styles = {
 };
 
 const config = {
-  initialColorMode: "dark",
+  initialColorMode: "light",
   useSystemColorMode: false,
 };
 // extend the theme
-const theme = extendTheme({ config, styles });
+const theme = extendTheme({ config });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
