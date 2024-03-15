@@ -1,8 +1,17 @@
-# React + Vite
+# Instagram Clone - Work in Progress
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I am utilizing my React skills to develop a clone of Instagram with following fucntionality :
 
-Currently, two official plugins are available:
+ ## Log in/ Sign upwith Firebase for Instagram
+ ## Create an instagram post with a caption
+ ## Comment on the post - you own post, your friend's post
+ ## Like a post - you own post, your friend's post
+ ## Delete your post
+ ## Add a friend to your Instagram 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+ # Technology Used:
+  ### React + Vite
+  ### Firebase
+  ### Chakra-UI
+
