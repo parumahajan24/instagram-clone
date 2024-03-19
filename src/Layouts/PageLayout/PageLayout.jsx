@@ -10,7 +10,7 @@ export const PageLayout = ({ children }) => {
   const { pathname } = useLocation();
   return (
     <Flex>
-      {/* Side bar on the left NOT on Auth page */}
+      {/* Side bar on the left ( containing Icons and Link to particualr pages) NOT on Auth page */}
       {pathname !== "/auth" ? (
         <Box w={{ base: "70px", md: "240px" }}>
           <Sidebar />

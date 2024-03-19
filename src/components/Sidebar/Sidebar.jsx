@@ -9,6 +9,7 @@ import {
   SearchLogo,
 } from "../../assets/constants";
 import { AiFillHome } from "react-icons/ai";
+import { BiLogOut } from "react-icons/bi";
 
 export const Sidebar = () => {
   const sidebarIcons = [
@@ -72,7 +73,7 @@ export const Sidebar = () => {
           <InstagramMobileLogo />
         </Link>
 
-        {/** For adding icons and their name when hover - small screen  */}
+        {/** For adding icons and their links when hover - small screen  */}
         <Flex direction={"column"} gap={5} cursor={"pointer"}>
           {sidebarIcons.map((item, index) => (
             <Tooltip
@@ -94,6 +95,7 @@ export const Sidebar = () => {
                 borderRadius={6}
                 p={2}
                 w={{base:10, md:"full"}}
+                justifyContent={{base:"center", md:"flex-start"}}
               >
                 {item.icon}
                 <Box display={{ base: "none", md: "block" }}>{item.text}</Box>
@@ -101,6 +103,33 @@ export const Sidebar = () => {
             </Tooltip>
           ))}
         </Flex>
+
+        {/** Logout button and icon at the bottom */}
+        <Tooltip
+              hasArrow
+              label="Logout"
+              placement="right"
+              ml={1}
+              openDelay={500}
+              display={{ base: "block", md: "none" }}
+            >
+              <Link
+                display={"flex"}
+                to={"/auth"}
+                as={RouterLink}
+                alignItems={"center"}
+                gap={4}
+                _hover={{ bg: "whiteAlpha.400" }}
+                borderRadius={6}
+                p={2}
+                w={{base:10, md:"full"}}
+                marginTop={"auto"} 
+                justifyContent={{base:"center", md:"flex-start"}}
+              >
+                <BiLogOut size={25} />
+                <Box display={{ base: "none", md: "block" }}>Logout</Box>
+              </Link>
+            </Tooltip>
       </Flex>
     </Box>
   );
