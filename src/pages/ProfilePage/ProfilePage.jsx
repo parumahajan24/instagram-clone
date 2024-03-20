@@ -21,7 +21,7 @@ const ProfilePage = () => {
         maxW={"full"}
         mx={"auto"}
         borderTop={"1px solid"}
-        borderColor={"whiteAplha.300"}
+        borderColor={"whiteAlpha.300"}
         direction={"column"}
       >
         <ProfileTabs />
