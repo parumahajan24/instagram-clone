@@ -3,9 +3,9 @@ import { FeedPosts } from "../../components/FeedPosts/FeedPosts";
 import { SuggestedUsers } from "../../components/SuggestedUsers/SuggestedUsers";
 
 {
-  /**Left hand-side : we have the Sidebar
-     Middle: we have the content, i.e. insta feed
-     Right hand-side: we have the suggested user component, your profile, and the logout link
+  /**Left hand-side : The Sidebar - coming from PageLayout - same for every page
+     Middle: The content component, i.e. FeedPosts
+     Right hand-side: The Suggested User component (your profile, and the logout link)
  */
 }
 
