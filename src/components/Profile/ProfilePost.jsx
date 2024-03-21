@@ -18,6 +18,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { FaComment } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Comment from "../Comment/Comment";
+import PostFooter from "../FeedPosts/PostFooter";
 
 // <Grid> container (from ProfilePosts.jsx) is the parent of <GridItem> which we will use in ProfilePost
 const ProfilePost = ({ img }) => {
@@ -134,7 +135,7 @@ const ProfilePost = ({ img }) => {
                 </Flex>
                 <Divider my={4} bg={"gray.500"} />
 
-                {/* Comments sections */}
+                {/* Comments section inside Modal */}
                 <VStack
                   w={"full"}
                   alignItems={"start"}
@@ -143,23 +144,25 @@ const ProfilePost = ({ img }) => {
                 >
                   <Comment
                     createdAt="1d ago"
-                    username={"parulmahajan username"}
+                    username={"parulmahajan_username"}
                     profilePic={"/profilepic.png"}
                     text={"Dummy image"}
                   />
-                   <Comment
+                  <Comment
                     createdAt="12h ago"
-                    username={"viraat username"}
+                    username={"viraat_username"}
                     profilePic={"/profilepic.png"}
                     text={"Nice pic"}
                   />
-                   <Comment
+                  <Comment
                     createdAt="3h ago"
-                    username={"udit username"}
+                    username={"udit_username"}
                     profilePic={"/profilepic.png"}
                     text={"WOW!"}
                   />
                 </VStack>
+                <Divider my={4} bg="gray.500" />
+                <PostFooter isProfilePage={true} />
               </Flex>
             </Flex>
           </ModalBody>
