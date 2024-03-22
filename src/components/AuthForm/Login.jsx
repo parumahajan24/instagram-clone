@@ -13,6 +13,7 @@ const Login = () => {
         placeholder="Email"
         name="email"
         type="email"
+        size={"sm"}
         fontSize={14}
         value={inputs.email}
         onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
@@ -20,6 +21,7 @@ const Login = () => {
       <Input
         placeholder="Password"
         name="password"
+        size={"sm"}
         type="password"
         fontSize={14}
         value={inputs.password}

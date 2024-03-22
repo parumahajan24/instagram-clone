@@ -1,13 +1,8 @@
-import {
-  Box,
-  Image,
-  VStack,
-  Flex,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Image, VStack, Flex, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import Login from "./Login";
-import SignUp from "./Signup"
+import SignUp from "./Signup";
+import GoogleAuth from "./GoogleAuth";
 
 const AuthForm = () => {
   /* show 'confirm password' only when trying to login, not on signup */
@@ -38,18 +33,8 @@ const AuthForm = () => {
             </Text>
             <Box flex={2} h={"1px"} bg={"gray.400"} />
           </Flex>
-
-          {/* Log in with Google */}
-          <Flex
-            alignItems={"center"}
-            justifyContent={"center"}
-            cursor={"pointer"}
-          >
-            <Image src="/google.png" w={5} alt="Google logo" />
-            <Text mx={2} color={"blue.500"}>
-              Log in with Google.
-            </Text>
-          </Flex>
+          {/* Login with Google */}
+          <GoogleAuth />
         </VStack>
       </Box>
 
