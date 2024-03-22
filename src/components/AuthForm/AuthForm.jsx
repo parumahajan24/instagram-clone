@@ -2,34 +2,16 @@ import {
   Box,
   Image,
   VStack,
-  Input,
-  Button,
   Flex,
   Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Login from "./Login";
+import SignUp from "./Signup"
 
 const AuthForm = () => {
   /* show 'confirm password' only when trying to login, not on signup */
   const [isLogin, setIsLogin] = useState(true);
-  const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const navigate = useNavigate()
-
-  const handleAuth = () => {
-    // console.log("inputs:", inputs);
-    if(!inputs.email || !inputs.password){
-      alert("Please fill all the fields.");
-      return;
-    }
-    {/* Navigate to home page if provided all the inputs */}
-    navigate("/")
-  };
-
   return (
     <>
       <Box border={"1px solid gray"} borderRadius={4} padding={5}>
@@ -40,41 +22,7 @@ const AuthForm = () => {
             cursor={"pointer"}
             alt="Instagram logo"
           />
-          <Input
-            placeholder="Email"
-            name="email"
-            type="email"
-            fontSize={14}
-            value={inputs.email}
-            onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
-          />
-          <Input
-            placeholder="Password"
-            name="password"
-            type="password"
-            fontSize={14}
-            value={inputs.password}
-            onChange={(e) => setInputs({...inputs, password: e.target.value})}
-          />
-          {!isLogin ? (
-            <Input
-              placeholder="Confirm Password"
-              name="confirmPassword"
-              type="password"
-              fontSize={14}
-              value={inputs.confirmPassword}
-              onChange={(e) => setInputs({...inputs, confirmPassword: e.target.value})}
-            />
-          ) : null}
-          <Button
-            w={"full"}
-            colorScheme="blue"
-            size={"sm"}
-            fontSize={14}
-            onClick={handleAuth}
-          >
-            {isLogin ? "Log in" : "Sign Up"}
-          </Button>
+          {isLogin ? <Login /> : <SignUp />}
 
           {/* ----------------- OR --------------- */}
           <Flex
