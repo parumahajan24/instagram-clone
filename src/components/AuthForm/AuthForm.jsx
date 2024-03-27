@@ -5,7 +5,6 @@ import SignUp from "./Signup";
 import GoogleAuth from "./GoogleAuth";
 
 const AuthForm = () => {
-  /* show 'confirm password' only when trying to login, not on signup */
   const [isLogin, setIsLogin] = useState(true);
   return (
     <>
@@ -33,7 +32,7 @@ const AuthForm = () => {
             </Text>
             <Box flex={2} h={"1px"} bg={"gray.400"} />
           </Flex>
-          {/* Login with Google */}
+          {/*---- Login with Google --- */}
           <GoogleAuth />
         </VStack>
       </Box>
