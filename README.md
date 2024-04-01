@@ -10,6 +10,7 @@ I am utilizing my React skills to develop a clone of Instagram with following fu
  #### 6. Delete your post
  #### 7. Add a friend to your Instagram
 
+I am excited to implement functionality of OpenAI API to have Sentiment Analysis on the Post Captions.
 
  # Technology Used:
   ### React + Vite
