@@ -1,9 +1,17 @@
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth, firestore } from "../firebase/firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, query, setDoc, where } from "firebase/firestore";
 import useShowToast from "./useShowToast";
 import useAuthStore from "../store/authStore";
 
+/**
+ * Custom hook for signing up a user with email and password.
+ * 
+ * @returns {Object} An object containing the loading state, error state, and the signup function.
+ * @property {boolean} loading - A boolean indicating whether the signup process is in progress.
+ * @property {string|null} error - The error message, if any, occurred during the signup process.
+ * @property {Function} signup - The function to initiate the signup process.
+ */
 const useSignUpWithEmailAndPassword = () => {
     const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth);
     const showToast = useShowToast();
@@ -18,6 +26,15 @@ const useSignUpWithEmailAndPassword = () => {
         ) {
             // use showToast hook if any of the fields are empty to show an error
             showToast("Error", "Please fill all the fields", "error");
+            return;
+        }
+
+        // Using Firestore to check if the username is already taken
+        const usersRef = collection(firestore, "users");
+        const q = query(usersRef, where("username", "==", inputs.username));
+        const querySnapShot = await getDocs(q);
+        if (!querySnapShot.empty) {
+            showToast("Error", "Username already exists", "error");
             return;
         }
 
