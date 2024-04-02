@@ -1,10 +1,13 @@
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth, firestore } from "../firebase/firebase";
 import { doc, setDoc } from "firebase/firestore";
+import useShowToast from "./useShowToast";
+import useAuthStore from "../store/authStore";
 
 const useSignUpWithEmailAndPassword = () => {
-    const [createUserWithEmailAndPassword, user, loading, error] =
-        useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth);
+    const showToast = useShowToast();
+    const loginUser = useAuthStore(state => state.login);
 
     const signup = async (inputs) => {
         if (
@@ -13,7 +16,8 @@ const useSignUpWithEmailAndPassword = () => {
             !inputs.fullName ||
             !inputs.username
         ) {
-            console.log("Please fill all the fields");
+            // use showToast hook if any of the fields are empty to show an error
+            showToast("Error", "Please fill all the fields", "error");
             return;
         }
 
@@ -23,7 +27,8 @@ const useSignUpWithEmailAndPassword = () => {
                 inputs.password
             );
             if (!newUser && error) {
-                console.log(error);
+                console.log(error.message)
+                showToast("Error", error.message, "error");
                 return;
             }
             if (newUser) {
@@ -45,13 +50,15 @@ const useSignUpWithEmailAndPassword = () => {
 
                 // setting in local storage
                 localStorage.setItem("user-info", JSON.stringify(userDoc));
+                // setting in state using zustand (similar to redux)
+                loginUser(userDoc);
             }
         } catch (error) {
-            console.error("Error...in catch: ",error);
+            showToast("Error", error.message, "error");
+
         }
     };
-
-    return { loading, error, signup };
+    return { loading, error, signup }
 };
 
 export default useSignUpWithEmailAndPassword
